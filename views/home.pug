@@ -4,17 +4,17 @@ html(lang="en")
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
       title Document
     body 
-      form#register_participant
-        label(for='name') Name:
+      form#register_participant(action ="")
+        label(for='name') Name: 
         input#name(type='text', name='name') 
         br
-        label(for='email') Email:
+        label(for='email') Email: 
         input#email(type='email', name='email') 
         br
         label(for='phoneNumber') Phone Number:
         input#phoneNumber(type='text', name='phoneNumber') 
         br
-        label Gender:
+        label Gender: 
         label
             input(type='radio', name='gender', value='male')
             | Male
@@ -25,17 +25,20 @@ html(lang="en")
             input(type='radio', name='gender', value='other')
             | Other
         br    
-        label(for='educationalStatus') Educational Status:
+        label(for='educationalStatus') Educational Status: 
         input#educationalStatus(type='text', name='educationalStatus') 
         br
-        label(for='school') School:
+        label(for='school') School: 
         input#school(type='text', name='school') 
         br
-        label(for='level') Level:
+        label(for='level') Level: 
         input#level(type='text', name='level') 
         br
-        label(for='region') Region:
+        label(for='region') Region: 
         input#region(type='text', name='region') 
         br
+        label(for="file") Bank Statement: 
+        input#file(type='file', name='file')
+        br
         button#register(type="submit") Register
-      script(src="/js/script.js")
+      script(src="/js/userScript.js")

@@ -1,0 +1,41 @@
+html(lang="en")
+    head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      title Document
+    body
+        div 
+        h1 Results.
+        table
+            thead
+                tr
+                    th Name
+                    th Email
+                    th Phone
+                    th Educational Status
+                    th region
+                    th School
+                    th Summit ID
+                    th verfied
+                    
+            tbody
+            each result in data
+                tr
+                    td= result.name
+                    td= result.email
+                    td= result.phoneNumber
+                    td= result.educationalStatus 
+                    td= result.region 
+                    td= result.school 
+                    td= result.summitID
+                    td= result.verified
+                    td 
+                        button(type="submit") View Receipt. 
+                    td 
+                        if result.verified === false  
+                            button(type='button') Verify
+                        else 
+                            | verified 
+    
+    script 
+        const data = #{data}

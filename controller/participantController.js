@@ -13,7 +13,7 @@ exports.addParticipant = catchAsync(async (req, res, next) => {
 		level,
 		region
 	} = req.body;
-
+	//const { originalname, filename, path } = req.file;
 	const newParticipant = await Participant.create({
 		name: name,
 		email: email,
@@ -23,14 +23,11 @@ exports.addParticipant = catchAsync(async (req, res, next) => {
 		school: school,
 		level: level,
 		region: region
+		//file: { originalname, filename, path }
 	});
 	if (newParticipant) {
-		return res.status(200).json({
-			message: "saved successfully!",
-			status: "success",
-			newParticipant
-		});
+		res.status(200).render("success");
 	} else {
-		res.status(400).json({ message: "unsucessful" });
+		res.status(400).render("error");
 	}
 });

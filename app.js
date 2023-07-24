@@ -1,18 +1,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookie_parser = require("cookie-parser");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const path = require("path");
-const { checkOut } = require("./controller/checkOutController");
 const viewsRoute = require("./routes/viewsRoute");
-const Flutterwave = require("flutterwave-node-v3");
 
 //require middleware routes
 const participantRoute = require("./routes/participantRoute");
 const adminRoute = require("./routes/adminRoute");
-const catchAsync = require("./utils/catchAsync");
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 dotenv.config({ path: "./config.env" });
 
 const port = app.set("port", process.env.PORT || 4040);
@@ -24,34 +24,14 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-//flutterwave stuff
-const flw = new Flutterwave(
-	"FLWPUBK_TEST-fe3d83f5f2d8826e0c88a7735c790551-X",
-	"FLWSECK_TEST-5719b3a6a881bbafb3d8833ac563428c-X"
-);
-
-const getBanks = async (req, res, next) => {
-	try {
-		const payload = {
-			country: "NG" //Pass either NG, GH, KE, UG, ZA or TZ to get list of banks in Nigeria, Ghana, Kenya, Uganda, South Africa or Tanzania respectively
-		};
-		const response = await flw.Bank.country(payload);
-		return res.send(response);
-		next();
-	} catch (error) {
-		console.log(error);
-	}
-};
-
 //middlewares.
 app.use(morgan("dev"));
-app.use(express.json());
+
+app.use(cookie_parser());
 
 //middleware routes.
 app.use("/app/v1/register_participant", participantRoute);
 app.use("/app/v1/admin", adminRoute);
-app.post("/app/v1/check_out", checkOut);
-app.get("/app/v1/banks", getBanks);
 app.use("/", viewsRoute);
 
 //unhandled routes.
