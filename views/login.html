@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./css/assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/home.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center ">
+                <h1 class="h1 text-secondary mb-4">Admin Login</h1>
+                <form class=" form-group form-control d-flex flex-column form-login" action="" id="admin_login">
+                    <div class="mb-3 d-flex lh-lg">
+                        <label class="me-2 form-label" for="username">Username:</label>
+                        <input class="form-control" type="text" name="username" id="username" />
+                    </div>
+                    <div class="mb-3 d-flex lh-lg">
+                        <label class="me-2 form-label" for="password">Password:</label>
+                        <input class="form-control" type="password" name="password" />
+                    </div>
+
+                    <button class="btn btn-secondary" type="submit" id="login">Login</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="/js/adminScript.js"></script>
+</body>
+</html>
