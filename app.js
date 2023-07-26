@@ -23,6 +23,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/CustomForm");
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static("uploads"));
 
 //middlewares.
 app.use(morgan("dev"));

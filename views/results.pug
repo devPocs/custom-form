@@ -1,41 +1,51 @@
-html(lang="en")
+doctype html
+html(lang='en')
     head
-      meta(charset="UTF-8")
-      meta(name="viewport", content="width=device-width, initial-scale=1.0")
-      title Document
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Document
+        // Bootstrap core CSS
+        link(href='/css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
     body
-        div 
-        h1 Results.
-        table
-            thead
-                tr
-                    th Name
-                    th Email
-                    th Phone
-                    th Educational Status
-                    th region
-                    th School
-                    th Summit ID
-                    th verfied
-                    
-            tbody
-            each result in data
-                tr
-                    td= result.name
-                    td= result.email
-                    td= result.phoneNumber
-                    td= result.educationalStatus 
-                    td= result.region 
-                    td= result.school 
-                    td= result.summitID
-                    td= result.verified
-                    td 
-                        button(type="submit") View Receipt. 
-                    td 
-                        if result.verified === false  
-                            button(type='button') Verify
-                        else 
-                            | verified 
-    
-    script 
-        const data = #{data}
+        .container-fluid.d-flex.align-self-start.flex-column
+            h1.h1.fw-bold.text-success Database Sheet
+            if data === "0 results"
+                h3 #{data}
+            else
+                table.table.table-striped
+                    thead.h4.text-secondary
+                        tr
+                            th #
+                                th(scope='col') Name
+                                th(scope='col') Email
+                                th(scope='col') Phone
+                                th(scope='col') Educational Status
+                                th(scope='col') Region
+                                th(scope='col') School
+                                th(scope='col') Summit ID
+                                th(scope='col') File Name
+                                th(scope='col') Verified
+                    tbody
+                    each result in data
+                        tr
+                            th(scope='row') 1
+                                td=result.name
+                                td=result.email
+                                td=result.phoneNumber
+                                td=result.educationalStatus
+                                td=result.region
+                                td=result.school
+                                td=result.summitID
+                                td=result.file.path
+                                td=result.verified
+                                td 
+                                    button(type="button" class="viewReceiptBtns") View Receipt.    
+                                td
+                                    if result.verified === false  
+                                        button(type='button' class="verifyBtns") Verify
+                                    else 
+                                        |verified 
+        // Boottrap CORE JS
+        script(src='/css/assets/dist/js/bootstrap.bundle.min.js')
+        script(src="/js/viewReceipt.js")
+        script(src="/js/verify.js")

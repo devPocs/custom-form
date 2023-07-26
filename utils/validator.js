@@ -8,8 +8,8 @@ exports.checkNewParticipant = (req, res, next) => {
 		gender: "required|string",
 		educationalStatus: "required|string",
 		school: "requiredIf:educationalStatus,student|string",
-		level: "requiredIf:educationalStatus,student|string",
-		region: "requiredIf:educationalStatus,student|string"
+		region: "requiredIf:educationalStatus,student|string",
+		file: "required"
 	});
 
 	validation.check().then(

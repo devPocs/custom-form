@@ -3,7 +3,13 @@ const mongoose = require("mongoose");
 const Participants = require("./../model/participantSchema");
 const catchAsync = require("./../utils/catchAsync");
 const ErrorHandler = require("./../utils/ErrorHandler");
+const fs = require("fs");
+const path = require("path");
 const nodemailer = require("nodemailer");
+const {
+	sanitizeEmail,
+	sanitizeTextInput
+} = require("./../utils/helperFunctions");
 
 //setup the nodemailer options. take this to the config file later.
 const transporter = nodemailer.createTransport({
@@ -15,7 +21,7 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.allParticipants = catchAsync(async (req, res, next) => {
-	const participants = await Participants.find({});
+	const participants = await Participants.find({}).sort({ name: 1 });
 	if (participants.length === 0) {
 		return res.status(200).render("results", { data: "0 results" });
 	}
@@ -78,15 +84,15 @@ exports.verifyParticipant = catchAsync(async (req, res, next) => {
 		const mailOptions = {
 			from: "reg.nisgssouthsouth@gmail.com",
 			to: email,
-			subject: "Surveyor's Conference, 2023.",
+			subject: "Surveyor's Conference, 2023",
 			text: `<h2>Hello, ${name},</h2> <p>Thank you for registering for the conference.</p> 
 			<p>Your registration id is: <h2>${summitId}.</h2> 
-			<h3>Please, ensure to have a printed copy of this page.</h3>
+			<h3>Pls be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3>
 			<p>Thanks and warm regards.</p>`,
 
 			html: `<h2>Hello, ${name},</h2> <p>Thank you for registering for the conference.</p> 
 			<p>Your registration id is: <h2>${summitId}.</h2> 
-			<h3>Please, ensure to have a printed copy of this page.</h3> 
+			<h3>Pls be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3> 
 			<p>Thanks and warm regards.</p>`
 		};
 
@@ -97,7 +103,7 @@ exports.verifyParticipant = catchAsync(async (req, res, next) => {
 			} else {
 				console.log("Email sent: " + info.response);
 
-				res.send("Email sent successfully");
+				res.status(200).json({ message: "Email sent successfully" });
 			}
 		});
 	}
@@ -105,8 +111,12 @@ exports.verifyParticipant = catchAsync(async (req, res, next) => {
 
 //check for participants by region and filter by verified status.
 exports.getParticipantsByRegion = catchAsync(async (req, res, next) => {
-	const region = req.body.region;
-	const chkRegion = await Participants.find({ region: region });
+	let region = req.body.region;
+	region = sanitizeTextInput(region);
+
+	const chkRegion = await Participants.find({ region: region }).sort({
+		name: 1
+	});
 
 	if (chkRegion.length === 0) {
 		return res.status(200).render("results", { data: "0 results" });
@@ -121,11 +131,11 @@ exports.getParticipantsByRegion = catchAsync(async (req, res, next) => {
 //check for participants by educational status and verified status
 exports.getParticipantsByEducationalStatus = catchAsync(
 	async (req, res, next) => {
-		const educationalStatus = req.body.educationalStatus;
-		console.log(educationalStatus);
+		let educationalStatus = req.body.educationalStatus;
+		educationalStatus = sanitizeTextInput(educationalStatus);
 		const status = await Participants.find({
 			educationalStatus
-		});
+		}).sort({ name: 1 });
 		if (status.length === 0) {
 			return res.status(200).render("results", { data: "0 results" });
 		}
@@ -142,7 +152,7 @@ exports.getParticipantsByEducationalStatus = catchAsync(
 exports.getAllVerifiedParticipants = catchAsync(async (req, res, next) => {
 	const allVerifiedParticipants = await Participants.find({
 		verified: true
-	});
+	}).sort({ name: 1 });
 	if (allVerifiedParticipants.length === 0) {
 		return res.status(200).render("results", { data: "0 results" });
 	}
@@ -157,7 +167,7 @@ exports.getAllVerifiedParticipants = catchAsync(async (req, res, next) => {
 exports.getAllUnverifiedParticipants = catchAsync(async (req, res, next) => {
 	const allUnverifiedParticipants = await Participants.find({
 		verified: false
-	});
+	}).sort({ name: 1 });
 	if (allUnverifiedParticipants.length !== 0) {
 		return res
 			.status(200)
@@ -175,17 +185,20 @@ exports.getAllUnverifiedParticipants = catchAsync(async (req, res, next) => {
 exports.getParticipant = catchAsync(async (req, res, next) => {
 	const queryString = req.body.queryString;
 	const participant = await Participants.find({
-		$or: [{ name: queryString }, { email: queryString }]
-	});
+		$or: [
+			{ name: sanitizeTextInput(queryString) },
+			{ email: sanitizeEmail(queryString) }
+		]
+	}).sort({ name: 1 });
 	if (participant.length === 0) {
 		return res.status(200).render("results", { data: "0 results" });
 	}
 	if (participant.length !== 0) {
-		return res.status(200).render("result", { data: participant });
+		return res.status(200).render("results", { data: participant });
 		next();
 	} else {
-		return res.status(400).render("error", { data: "something went wrong!" });
+		return res
+			.status(400)
+			.render("error", { data: "something went wrong! Check your input." });
 	}
 });
-
-//users should ensure that the name on the form matches the name of their bank accounts

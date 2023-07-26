@@ -1,0 +1,292 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(name='description' content='')
+        title NISGS SOUTH SOUTH CONF
+        link(rel='canonical' href='https://getbootstrap.com/docs/5.0/examples/carousel/')
+        // Bootstrap core CSS
+        link(href='/css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
+        //
+            <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+            />
+        style.
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            }
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+            }
+            }
+        // Custom styles for this template
+        link(href='./css/carousel.css' rel='stylesheet')
+    body
+        header
+            nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark.py-0
+                .container-fluid.py-0
+                    div
+                        img.px-0.mx-0(src='./images/logo_1_s.png' alt='' width='74px')
+                        img.px-0.mx-0(src='./images/logo_2_s.png' alt='' width='61px')
+                    a.navbar-brand(href='#')
+                        span Nigerian Institution of Surveying and Geoinformatics Students
+                        |  (NISGS)
+                    //
+                        <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse"
+                        aria-controls="navbarCollapse"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        >
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    //
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                        <a
+                        class="nav-link disabled"
+                        href="#"
+                        tabindex="-1"
+                        aria-disabled="true"
+                        >Disabled</a
+                        >
+                        </li>
+                        </ul>
+                    //
+                        <form class="d-flex">
+                        <input
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        />
+                        <button class="btn btn-outline-success" type="submit">
+                        Search
+                        </button>
+                        </form>
+        main
+            #myCarousel.carousel.slide(data-bs-ride='carousel')
+                .carousel-indicators
+                    button.active(type='button' data-bs-target='#myCarousel' data-bs-slide-to='0' aria-label='Slide 1' aria-current='true')
+                    button(type='button' data-bs-target='#myCarousel' data-bs-slide-to='1' aria-label='Slide 2')
+                    button(type='button' data-bs-target='#myCarousel' data-bs-slide-to='2' aria-label='Slide 3')
+                .carousel-inner
+                    .carousel-item.active
+                        svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' preserveAspectRatio='xMidYMid slice' focusable='false')
+                        img(src='./images/caro2.jpeg' alt='')
+                        // <rect width="100%" height="100%" fill="#777"></rect>
+                        .container
+                            .carousel-caption.text-start
+                                h1.fw-bold.text-dark 2ND NISGS SOUTH SOUTH ZONAL CONFERENCE
+                                p.text-dark
+                                    | Tagged: 
+                                    strong
+                                        | "SURVEYING AND GEOMATICS: The Past, The Present
+                                        | and The Future"
+                                p.text-dark
+                                    | Date: 
+                                    em 19th - 23rd September, 2023.
+                                p
+                                    a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
+                    .carousel-item
+                        svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' preserveAspectRatio='xMidYMid slice' focusable='false')
+                        img(src='./images/caro3.jpeg' alt='')
+                        // <rect width="100%" height="100%" fill="#777"></rect>
+                        .container
+                            .carousel-caption.text-start
+                                h1.fw-bold.text-dark 2ND NISGS SOUTH SOUTH ZONAL CONFERENCE
+                                p.text-dark
+                                    | Tagged: 
+                                    strong
+                                        | "SURVEYING AND GEOMATICS: The Past, The Present
+                                        | and The Future"
+                                p.text-dark
+                                    | Date: 
+                                    em 19th - 23rd September, 2023.
+                                p
+                                    a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
+                    .carousel-item
+                        svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' preserveAspectRatio='xMidYMid slice' focusable='false')
+                        img(src='./images/caro1.jpeg' alt='')
+                        // <rect width="100%" height="100%" fill="#777"></rect>
+                        .container
+                            .carousel-caption.text-start
+                                h1.fw-bold.text-dark 2ND NISGS SOUTH SOUTH ZONAL CONFERENCE
+                                p.text-dark
+                                    | Tagged: 
+                                    strong
+                                        | "SURVEYING AND GEOMATICS: The Past, The Present
+                                        | and The Future"
+                                p.text-dark
+                                    | Date: 
+                                    em 19th - 23rd September, 2023.
+                                p
+                                    a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
+                button.carousel-control-prev(type='button' data-bs-target='#myCarousel' data-bs-slide='prev')
+                    span.carousel-control-prev-icon(aria-hidden='true')
+                    span.visually-hidden Previous
+                button.carousel-control-next(type='button' data-bs-target='#myCarousel' data-bs-slide='next')
+                    span.carousel-control-next-icon(aria-hidden='true')
+                    span.visually-hidden Next
+            //
+                Marketing messaging and featurettes
+                ==================================================
+            // Wrap the rest of the page in another container to center all the content.
+            .container.marketing
+                // Three columns of text below the carousel
+                .row
+                    h2.text-center.mb-5 Event Highlights
+                    .col-lg-4
+                        //
+                            <svg
+                            class="bd-placeholder-img rounded-circle"
+                            width="140"
+                            height="140"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            aria-label="Placeholder: 140x140"
+                            preserveAspectRatio="xMidYMid slice"
+                            focusable="false"
+                            >
+                        // <title>Placeholder</title>
+                        // <img src="./images/caro3.jpeg" width="140" alt="">
+                        // <rect width="100%" height="100%" fill=""></rect>
+                        img.rounded.rounded-circle.mb-md-4.mb-3(src='./images/caro3.jpeg' alt='' width='140' height='140')
+                        // <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        h2 Seminars and Lectures
+                        p
+                            | Engage with, and gain valuable insights from distinguished intellectuals and indutry professionals.
+                    // /.col-lg-4
+                    .col-lg-4
+                        //
+                            <svg
+                            class="bd-placeholder-img rounded-circle"
+                            width="140"
+                            height="140"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            aria-label="Placeholder: 140x140"
+                            preserveAspectRatio="xMidYMid slice"
+                            focusable="false"
+                            >
+                        // <title>Placeholder</title>
+                        // <img src="./images/caro3.jpeg" width="140" alt="">
+                        // <rect width="100%" height="100%" fill=""></rect>
+                        img.rounded.rounded-circle.mb-md-4.mb-3(src='./images/caro3.jpeg' alt='' width='140' height='140')
+                        // <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        h2 Tour, Congress and Networking Events
+                        p
+                            | network with other young surveyors, field professionals and academia as well as visit exiting landmarks
+                            | in the land of promise.
+                    // /.col-lg-4
+                    .col-lg-4
+                        //
+                            <svg
+                            class="bd-placeholder-img rounded-circle"
+                            width="140"
+                            height="140"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            aria-label="Placeholder: 140x140"
+                            preserveAspectRatio="xMidYMid slice"
+                            focusable="false"
+                            >
+                        // <title>Placeholder</title>
+                        // <img src="./images/caro3.jpeg" width="140" alt="">
+                        // <rect width="100%" height="100%" fill=""></rect>
+                        img.rounded.rounded-circle.mb-md-4.mb-3(src='./images/caro3.jpeg' alt='' width='140' height='140')
+                        // <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        h2 Technical and Practical Sessions
+                        p
+                            | Explore hands-on cutting-edge surveying techniques and technologies during our practical sessions
+                    // /.col-lg-4
+                    // /.row
+                    .row.text-center
+                        p
+                            a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
+                    // START THE FEATURETTES
+                    hr.featurette-divider
+                    //
+                        <div class="row featurette">
+                        <div class="col-md-7">
+                        <h2 class="featurette-heading">
+                        First featurette heading.
+                        <span class="text-muted">It’ll blow your mind.</span>
+                        </h2>
+                        <p class="lead">
+                        Some great placeholder content for the first featurette here.
+                        Imagine some exciting prose here.
+                        </p>
+                        </div>
+                        <div class="col-md-5">
+                        <svg
+                        class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                        width="500"
+                        height="500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        aria-label="Placeholder: 500x500"
+                        preserveAspectRatio="xMidYMid slice"
+                        focusable="false"
+                        >
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="#eee"></rect>
+                        <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+                        </svg>
+                        </div>
+                        </div>
+                    .row.text-center
+                        h2.text-center.mb-4 Write Us a Message
+                        .mx-auto.w-75
+                            .input-group.mb-3
+                                // <span class="input-group-text" id="basic-addon1">@</span>
+                                input.form-control(type='text' placeholder='Name' aria-label='Name' aria-describedby='basic-addon1')
+                            .input-group.mb-3
+                                input.form-control(type='email' placeholder='Email' aria-label='Email' aria-describedby='basic-addon2')
+                            .input-group.mb-3
+                                textarea.form-control(placeholder='Drop a message' aria-label='Comment')
+                        div
+                            p
+                                a.btn.btn-lg.btn-secondary.px-4.py-2(href='#') Send Message
+                    hr.featurette-divider
+                    .row
+                        h2.mb-4.text-center Contact Us
+                        div
+                            p Phone: 07062618977
+                        div
+                            p Email: nisgssouthsouth@gmail.com
+                    hr.featurette-divider
+            // /.container
+            // FOOTER
+            footer.container
+                p.float-end
+                    a(href='#') Back to top
+                p
+                    | © 2023 Nisgs. ·
+                    a(href='#') Terms
+        //
+            <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"
+            ></script>
+        script(src='./css/assets/dist/js/bootstrap.bundle.min.js')

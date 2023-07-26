@@ -12,3 +12,18 @@ exports.generateSummitId = function (length) {
 
 	return "NISC-" + summitId;
 };
+
+exports.sanitizeEmail = function (input) {
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	if (emailRegex.test(input)) {
+		return input;
+	} else {
+		return null;
+	}
+};
+exports.sanitizeTextInput = function (input) {
+	const sanitizedInput = input.replace(/[^a-zA-Z]/g, "");
+
+	const capitalizedInput = sanitizedInput.toUpperCase();
+	return capitalizedInput;
+};

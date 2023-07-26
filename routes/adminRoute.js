@@ -22,7 +22,7 @@ router.post(
 	"/participants_by_educational_status",
 	getParticipantsByEducationalStatus
 );
-router.get("/participant", getParticipant);
+router.post("/participant", getParticipant);
 router.get("/verified_participants", getAllVerifiedParticipants);
 router.get("/unverified_participants", getAllUnverifiedParticipants);
 

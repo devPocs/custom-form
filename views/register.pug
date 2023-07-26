@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Document
+        // Bootstrap core CSS
+        link(href='./css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
+        link(rel='stylesheet' href='./css/home.css')
+    body
+        .container
+            .row.mx-md-4.px-lg-4.text-center.mx-auto
+                h1.w-75.mx-auto
+                    | NISGS South South Conference Registration Page
+                form#register_participant.form-register
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='name')  Name: 
+                        input#name.form-control(type='text' name='name' placeholder= "Surname Firstname" required=true)
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='email')  Email: 
+                        input#email.form-control(type='email' name='email' required=true)
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='phoneNumber')  Phone: 
+                        input#phoneNumber.form-control(type='text' name='phoneNumber' required=true maxlength=11)
+                    .d-flex.lh-lg.mb-3
+                        label.me-3  Gender: 
+                        label.d-flex.me-2
+                            input.form-check.me-2(type='radio' name='gender' value='male' )
+                            |               Male
+                        label.d-flex.me-2
+                            input.form-check.me-2(type='radio' name='gender' value='female' )
+                            |               Female
+                        label.d-flex
+                            input.form-check.me-2(type='radio' name='gender' value='other')
+                            |               other
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='educationalStatus')  Education: 
+                        //
+                            <input
+                            class="form-control"
+                            type="text"
+                            name="educationalStatus"
+                            id="educationalStatus"
+                            />
+                        select#educationalStatus.text-secondary.form-select.form-control(name='educationalStatus' aria-label='.form-select-lg example')
+                            option(selected='') Select one
+                            option(value='student') Student
+                            option(value='graduate') Graduate
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='school')  School: 
+                        input#school.form-control(type='text' name='school')
+
+                    //.d-flex.lh-lg.mb-3
+                        label.me-2(for='idCard') ID_Card: 
+                        input#idCard.form-control(type='file')
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='region')  Region: 
+                        input#region.form-control(type='text' name='region'  required=true)
+                    .d-flex.lh-lg.mb-3
+                        label.me-3(for='bankStatement') Receipt:  
+                        input#file.form-control(type='file' name='file' required=true)
+                    div
+                        button#register.btn.btn-success.w-100.fs-5.fw-light.px-5(type='submit')
+                            | Register
+        script(src='/css/assets/dist/js/bootstrap.bundle.min.js')
+        script(src='css/js/script.js')
+        script(src='/js/userScript.js')

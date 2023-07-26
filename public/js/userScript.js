@@ -21,14 +21,13 @@ const register = async (data) => {
 	)
 		.then((response) => {
 			console.log(response);
-			if (response.status === 400) {
+			if (response.status === 400 || response.status === 500) {
 				alert(
-					"You have not completed the form or the email already exists or name already exists!"
+					"You have not completed the form or the email already exists. Please try a different email address."
 				);
 				location.reload();
 			} else if (response.status === 200) {
-				alert("User added successfully!");
-				location.assign("/register");
+				location.assign("/register/successful");
 			}
 		})
 		.catch((err) => {
@@ -46,7 +45,7 @@ document
 		const gender = displayGenderValue();
 		const educationalStatus = document.getElementById("educationalStatus");
 		const school = document.getElementById("school");
-		const level = document.getElementById("level");
+		//const level = document.getElementById("level");
 		const region = document.getElementById("region");
 		const file = document.getElementById("file");
 
@@ -57,9 +56,9 @@ document
 		formData.append("gender", gender);
 		formData.append("educationalStatus", educationalStatus.value);
 		formData.append("school", school.value);
-		formData.append("level", level.value);
+		//formData.append("level", level.value);
 		formData.append("region", region.value);
-		//formData.append("file", file.files[0]);
+		formData.append("file", file.files[0]);
 
 		register(formData);
 	});

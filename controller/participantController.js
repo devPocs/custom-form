@@ -1,33 +1,29 @@
 const express = require("express");
 const catchAsync = require("../utils/catchAsync");
 const Participant = require("../model/participantSchema");
+const {
+	sanitizeEmail,
+	sanitizeTextInput
+} = require("./../utils/helperFunctions");
 
 exports.addParticipant = catchAsync(async (req, res, next) => {
-	const {
-		name,
-		email,
-		phoneNumber,
-		gender,
-		educationalStatus,
-		school,
-		level,
-		region
-	} = req.body;
-	//const { originalname, filename, path } = req.file;
+	let { name, email, phoneNumber, gender, educationalStatus, school, region } =
+		req.body;
+	const { originalname, filename, path } = req.file;
+	console.log(req.file);
 	const newParticipant = await Participant.create({
-		name: name,
+		name: sanitizeTextInput(name),
 		email: email,
 		phoneNumber: phoneNumber,
 		gender: gender,
-		educationalStatus: educationalStatus,
-		school: school,
-		level: level,
-		region: region
-		//file: { originalname, filename, path }
+		educationalStatus: sanitizeTextInput(educationalStatus),
+		school: sanitizeTextInput(school),
+		region: sanitizeTextInput(region),
+		file: { originalname, filename, path }
 	});
 	if (newParticipant) {
 		res.status(200).render("success");
 	} else {
-		res.status(400).render("error");
+		res.status(400).render("error", { message: "Something went wrong!" });
 	}
 });
