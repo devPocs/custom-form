@@ -19,6 +19,8 @@ const port = app.set("port", process.env.PORT || 4040);
 //db connection.
 mongoose.connect("mongodb://127.0.0.1:27017/CustomForm");
 
+app.disable("x-powered-by");
+
 //set up templating engine
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));

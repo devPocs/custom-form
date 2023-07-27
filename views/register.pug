@@ -3,7 +3,7 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title Document
+        title Register
         // Bootstrap core CSS
         link(href='./css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
         link(rel='stylesheet' href='./css/home.css')
@@ -18,10 +18,10 @@ html(lang='en')
                         input#name.form-control(type='text' name='name' placeholder= "Surname Firstname" required=true)
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='email')  Email: 
-                        input#email.form-control(type='email' name='email' required=true)
+                        input#email.form-control(type='email' name='email' placeholder="me@gmail.com" required=true)
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='phoneNumber')  Phone: 
-                        input#phoneNumber.form-control(type='text' name='phoneNumber' required=true maxlength=11)
+                        input#phoneNumber.form-control(type='text' name='phoneNumber' placeholder="08012345678" required=true maxlength=11)
                     .d-flex.lh-lg.mb-3
                         label.me-3  Gender: 
                         label.d-flex.me-2

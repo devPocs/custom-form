@@ -6,7 +6,6 @@ const path = require("path");
 
 const myTrickFunction = (message) => {
 	(req, res, next) => {
-		console.log("test");
 		return res.redirect("error", { data: message });
 		next();
 	};
@@ -27,7 +26,7 @@ const participantSchema = mongoose.Schema({
 	educationalStatus: {
 		type: String,
 		required: true,
-		enum: ["graduate", "student"]
+		enum: ["GRADUATE", "STUDENT"]
 	},
 	school: { type: String },
 	level: { type: Number },

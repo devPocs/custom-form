@@ -10,7 +10,7 @@ exports.addParticipant = catchAsync(async (req, res, next) => {
 	let { name, email, phoneNumber, gender, educationalStatus, school, region } =
 		req.body;
 	const { originalname, filename, path } = req.file;
-	console.log(req.file);
+
 	const newParticipant = await Participant.create({
 		name: sanitizeTextInput(name),
 		email: email,

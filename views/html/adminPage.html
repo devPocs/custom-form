@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:8088/app/v1/admin/all_participants", method="get">
+        <button id="register" type="submit">Get All Participants</button>
+    </form>
+    <form action="http://localhost:8088/app/v1/admin/unverified_participants", method="get">
+        <button id="unverifiedParticipants" type="submit">Get All Participants</button>
+    </form>
+    <br>
+    <form action="http://localhost:8088/app/v1/admin/verified_participants", method="get">
+        <button id="verifiedParticipants" type="submit">Get All Participants</button>
+    </form>
+    <br>
+    <form id="participantsByRegion" action="/app/v1/admin/participants_by_region", method="post">
+        <button type="submit">Participants by Region</button>
+        <label for="region">Region:</label>
+        <input type="text" name="region" id="region" required />
+    </form>
+    <br>
+    <form id="participantsByEducationalStatus" action="/app/v1/admin/participants_by_educational_status", method="post">
+        <button type="submit">Participants by Educational Status</button>
+        <label for="educationalStatus">Educational Status:</label>
+        <input type="text" name="educationalStatus" id="educationalStatus" required />
+    </form>
+</body>
+</html>

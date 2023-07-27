@@ -10,20 +10,21 @@ const {
 	getAllVerifiedParticipants,
 	getAllUnverifiedParticipants
 } = require("./../controller/adminController");
-const { login, logout } = require("./../controller/authController");
+const { login, logout, protected } = require("./../controller/authController");
 
 router.post("/login", login);
 router.get("/logout", logout);
-router.get("/all_participants", allParticipants);
-router.post("/participants_by_day", getParticipantsByDay);
-router.post("/verify_Participant", verifyParticipant);
-router.post("/participants_by_region", getParticipantsByRegion);
+router.get("/all_participants", protected, allParticipants);
+router.post("/participants_by_day", protected, getParticipantsByDay);
+router.post("/verify_Participant", protected, verifyParticipant);
+router.post("/participants_by_region", protected, getParticipantsByRegion);
 router.post(
 	"/participants_by_educational_status",
+	protected,
 	getParticipantsByEducationalStatus
 );
-router.post("/participant", getParticipant);
-router.get("/verified_participants", getAllVerifiedParticipants);
-router.get("/unverified_participants", getAllUnverifiedParticipants);
+router.post("/participant", protected, getParticipant);
+router.get("/verified_participants", protected, getAllVerifiedParticipants);
+router.get("/unverified_participants", protected, getAllUnverifiedParticipants);
 
 module.exports = router;
