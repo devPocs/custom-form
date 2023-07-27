@@ -1,43 +1,43 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(href='/css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
-    link(rel='stylesheet' href='/css/home.css')
-    title nisgs admin dashboard
-  body.d-flex.flex-column
-    div.mb-3
-      a.btn.btn-outline-secondary.px-3.py-2(href='/register') home
-    div.mb-3
-      form(action='http://localhost:8088/app/v1/admin/all_participants' ,='' method='get')
-        button#register.btn.btn-secondary(type='submit') Get All Participants
-    //- br
-    div.mb-3
-      form(action='http://localhost:8088/app/v1/admin/unverified_participants' ,='' method='get')
-        button#unverifiedParticipants.btn.btn-secondary(type='submit') Get All Unverified Participants
-    //- br
-    div.mb-3
-      form(action='http://localhost:8088/app/v1/admin/verified_participants' ,='' method='get')
-        button#verifiedParticipants.btn.btn-secondary(type='submit') Get All Verified Participants
-    //- br
-    div.mb-3
-      form(action='http://localhost:8088/app/v1/admin/participant' ,='' method='post')
-        button.btn.btn-secondary.mb-2(type='submit') Get Participant By Name
-        div.d-flex.lh-lg
-          label.form-label.me-3(for='participant') Email/Name:
-          input#queryString.form-control(type="text/email" name="queryString" required=true)
-    //- br
-    div.mb-3
-      form#participantsByRegion(action='/app/v1/admin/participants_by_region' ,='' method='post')
-        button.btn.btn-secondary.mb-2(type='submit') Participants by Region 
-        div.d-flex.lh-lg
-          label.form-label.me-3(for='region') Region:
-          input#region.form-control(type='text' name='region' required=true)
-    //- br
-    div.mb-3
-      form#participantsByEducationalStatus.lh-lg(action='/app/v1/admin/participants_by_educational_status' ,='' method='post')
-        button.btn.btn-secondary.mb-2(type='submit') Participants by Educational Status 
-        div.d-flex.lh-lg
-          label.form-label.me-3(for='educationalStatus') Educational Status:
-          input#educationalStatus.form-control(type='text' name='educationalStatus' required="true")
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(href='/css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
+        link(rel='stylesheet' href='/css/home.css')
+        title nisgs admin dashboard
+    body.d-flex.flex-column
+        div.mb-3
+            a.btn.btn-outline-secondary.px-3.py-2(href='/register') home
+        div.mb-3
+            form(action='http://localhost:8088/app/v1/admin/all_participants' ,='' method='get')
+                button#register.btn.btn-secondary(type='submit') Get All Participants
+        //- br
+        div.mb-3
+            form(action='http://localhost:8088/app/v1/admin/unverified_participants' ,='' method='get')
+                button#unverifiedParticipants.btn.btn-secondary(type='submit') Get All Unverified Participants
+        //- br
+        div.mb-3
+            form(action='http://localhost:8088/app/v1/admin/verified_participants' ,='' method='get')
+                button#verifiedParticipants.btn.btn-secondary(type='submit') Get All Verified Participants
+        //- br
+        div.mb-3
+            form(action='http://localhost:8088/app/v1/admin/participant' ,='' method='post')
+                button.btn.btn-secondary.mb-2(type='submit') Get Participant By Name
+                div.d-flex.lh-lg
+                    label.form-label.me-3(for='participant') Email/Name:
+                    input#queryString.form-control(type="text/email" name="queryString" required=true)
+        //- br
+        div.mb-3
+            form#participantsByRegion(action='/app/v1/admin/participants_by_region' ,='' method='post')
+                button.btn.btn-secondary.mb-2(type='submit') Participants by Region 
+                div.d-flex.lh-lg
+                    label.form-label.me-3(for='region') Region:
+                    input#region.form-control(type='text' name='region' required=true)
+        //- br
+        div.mb-3
+            form#participantsByEducationalStatus.lh-lg(action='/app/v1/admin/participants_by_educational_status' ,='' method='post')
+                button.btn.btn-secondary.mb-2(type='submit') Participants by Educational Status 
+                div.d-flex.lh-lg
+                    label.form-label.me-3(for='educationalStatus') Educational Status:
+                    input#educationalStatus.form-control(type='text' name='educationalStatus' required="true")

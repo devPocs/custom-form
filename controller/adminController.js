@@ -85,12 +85,12 @@ exports.verifyParticipant = catchAsync(async (req, res, next) => {
 			subject: "Surveyor's Conference, 2023",
 			text: `<h2>Hello, ${name},</h2> <p>Thank you for registering for the conference.</p> 
 			<p>Your registration id is: <h2>${summitId}.</h2> 
-			<h3>Pls be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3>
+			<h3>Pls, be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3>
 			<p>Thanks and warm regards.</p>`,
 
 			html: `<h2>Hello, ${name},</h2> <p>Thank you for registering for the conference.</p> 
 			<p>Your registration id is: <h2>${summitId}.</h2> 
-			<h3>Pls be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3> 
+			<h3>Pls, be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3> 
 			<p>Thanks and warm regards.</p>`
 		};
 
