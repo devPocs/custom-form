@@ -3,8 +3,9 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title Document
-    body
-        div
-            p#data #{data}
-                a(href='/register') home
+        title -reg error-
+    body.d-flex.justify-content-center.align-content-center.h-100
+        div.container
+            div.row.text-center
+                p#data #{data}
+                    a.btn.btn-outline-secondary.px-3.py-2(href='/register') home

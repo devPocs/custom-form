@@ -3,28 +3,36 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title Admin
-    body
-        form(action='http://localhost:8088/app/v1/admin/all_participants' ,='' method='get')
-            button#register(type='submit') Get All Participants
+        title nisgs admin dashboard
+    body.d-flex.flex-column
+        div
+            a.btn.btn-outline-secondary.px-3.py-2(href='/register') home
+        div
+            form(action='http://localhost:8088/app/v1/admin/all_participants' ,='' method='get')
+                button#register.btn.btn-secondary(type='submit') Get All Participants
         br
-        form(action='http://localhost:8088/app/v1/admin/unverified_participants' ,='' method='get')
-            button#unverifiedParticipants(type='submit') Get All Unverified Participants
+        div
+            form(action='http://localhost:8088/app/v1/admin/unverified_participants' ,='' method='get')
+                button#unverifiedParticipants.btn.btn-secondary(type='submit') Get All Unverified Participants
         br
-        form(action='http://localhost:8088/app/v1/admin/verified_participants' ,='' method='get')
-            button#verifiedParticipants(type='submit') Get All Verified Participants
+        div
+            form(action='http://localhost:8088/app/v1/admin/verified_participants' ,='' method='get')
+                button#verifiedParticipants.btn.btn-secondary(type='submit') Get All Verified Participants
         br
-        form(action='http://localhost:8088/app/v1/admin/participant' ,='' method='post')
-            button(type='submit') Get Participant By Name 
-            label(for='participant') Email/Name:
-            input#queryString(type="text/email" name="queryString" required=true)
+        div
+            form.lh-lg(action='http://localhost:8088/app/v1/admin/participant' ,='' method='post')
+                button.btn.btn-secondary(type='submit') Get Participant By Name 
+                label.form-label(for='participant') Email/Name:
+                input#queryString.form-control(type="text/email" name="queryString" required=true)
         br
-        form#participantsByRegion(action='/app/v1/admin/participants_by_region' ,='' method='post')
-            button(type='submit') Participants by Region 
-            label(for='region') Region:
-            input#region(type='text' name='region' required=true)
+        div
+            form#participantsByRegion.lh-lg(action='/app/v1/admin/participants_by_region' ,='' method='post')
+                button.btn.btn-secondary(type='submit') Participants by Region 
+                label.form-label(for='region') Region:
+                input#region.form-control(type='text' name='region' required=true)
         br
-        form#participantsByEducationalStatus(action='/app/v1/admin/participants_by_educational_status' ,='' method='post')
-            button(type='submit') Participants by Educational Status 
-            label(for='educationalStatus') Educational Status:
-            input#educationalStatus(type='text' name='educationalStatus' required="true")
+        div
+            form#participantsByEducationalStatus.lh-lg(action='/app/v1/admin/participants_by_educational_status' ,='' method='post')
+                button.btn.btn-secondary(type='submit') Participants by Educational Status 
+                label.form-label(for='educationalStatus') Educational Status:
+                input#educationalStatus.form-control(type='text' name='educationalStatus' required="true")

@@ -3,8 +3,14 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Success
-  body
-    h1 Data Captured Successfully!
-    p You will receive a mail once your payment is verified.
-    a(href='/register') home
+    title Document
+  body.d-flex.justify-content-center.align-content-center.h-100
+    div.container
+      div.row
+        div.col-12.d-flex.flex-column
+          div
+            h1.fs-2.text-center.text-secondary Data Captured Successfully!
+          div  
+            p.fs-4.text-success.text-center You will receive a mail once your payment is verified.
+          div 
+            a.btn.btn-outline-success.px-3.py-2.text-center(href='/register') home
