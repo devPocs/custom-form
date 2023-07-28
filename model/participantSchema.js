@@ -4,12 +4,6 @@ const { generateSummitId } = require("./../utils/helperFunctions");
 const multer = require("multer");
 const path = require("path");
 
-const myTrickFunction = (message) => {
-	(req, res, next) => {
-		return res.redirect("error", { data: message });
-		next();
-	};
-};
 //create a fileSchema for uploaded files.
 const fileSchema = new mongoose.Schema({
 	originalname: String,
@@ -20,7 +14,6 @@ const fileSchema = new mongoose.Schema({
 const participantSchema = mongoose.Schema({
 	name: { type: String, required: true },
 	email: { type: String, required: true, unique: true },
-	//passId: { type: String },
 	phoneNumber: { type: String, required: true },
 	gender: { type: String, required: true },
 	educationalStatus: {
@@ -32,7 +25,7 @@ const participantSchema = mongoose.Schema({
 	level: { type: Number },
 	region: { type: String },
 	verified: { type: Boolean, default: false },
-	summitID: { type: String, unique: true },
+	summitID: { type: String },
 	file: fileSchema,
 	createdAt: { type: Date, default: new Date() }
 });
@@ -43,6 +36,7 @@ participantSchema.pre("save", function (next) {
 	this.summitID = newId;
 	return next();
 });
+
 const Participant = mongoose.model("participants", participantSchema);
 
 module.exports = Participant;
