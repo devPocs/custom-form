@@ -26,8 +26,6 @@ exports.allParticipants = catchAsync(async (req, res, next) => {
 		return res.status(200).render("results", { data: "0 results" });
 	}
 	if (participants.leghth !== 0) {
-		console.log(participants);
-
 		return res.status(200).render("results", { data: participants });
 	} else {
 		return res.render("error", { data: "something went wrong" });
@@ -87,22 +85,19 @@ exports.verifyParticipant = catchAsync(async (req, res, next) => {
 			subject: "Surveyor's Conference, 2023",
 			text: `<h2>Hello, ${name},</h2> <p>Thank you for registering for the conference.</p> 
 			<p>Your registration id is: <h2>${summitId}.</h2> 
-			<h3>Pls be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3>
+			<h3>Pls, be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3>
 			<p>Thanks and warm regards.</p>`,
 
 			html: `<h2>Hello, ${name},</h2> <p>Thank you for registering for the conference.</p> 
 			<p>Your registration id is: <h2>${summitId}.</h2> 
-			<h3>Pls be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3> 
+			<h3>Pls, be able to provide a printed copy of this info at the validation stand during the conference to get your conference tag.</h3> 
 			<p>Thanks and warm regards.</p>`
 		};
 
 		transporter.sendMail(mailOptions, (error, info) => {
 			if (error) {
-				console.error(error);
 				res.status(500).send("Failed to send email");
 			} else {
-				console.log("Email sent: " + info.response);
-
 				res.status(200).json({ message: "Email sent successfully" });
 			}
 		});

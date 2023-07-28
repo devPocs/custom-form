@@ -7,7 +7,7 @@ exports.protected = catchAsync(async (req, res, next) => {
 	const adminId = req.cookies.adminId;
 
 	if (!adminId) {
-		res.redirect("admin/login");
+		res.redirect("/admin/login");
 		return;
 	}
 	// Find the authenticated user by ID
@@ -15,14 +15,14 @@ exports.protected = catchAsync(async (req, res, next) => {
 	if (adminId !== Admin[0].id) {
 		res.render("error");
 	} else {
-		res.render("adminPage");
+		return next();
 	}
 });
 
 exports.login = catchAsync(async (req, res, next) => {
 	const username = req.body.username;
 	const password = req.body.password;
-	console.log(req.body);
+
 	if (!username || !password) {
 		return res
 			.status(401)
@@ -51,3 +51,4 @@ exports.logout = (req, res) => {
 		})
 		.json({ status: "success" });
 };
+exports.isLoggedIn = (req, res) => {};

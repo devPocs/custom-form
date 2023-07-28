@@ -1,7 +1,6 @@
 const crypto = require("crypto");
 exports.generateSummitId = function (length) {
-	const characters =
-		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	const randomBytes = crypto.randomBytes(length);
 	let summitId = "";
 
@@ -22,7 +21,7 @@ exports.sanitizeEmail = function (input) {
 	}
 };
 exports.sanitizeTextInput = function (input) {
-	const sanitizedInput = input.replace(/[^a-zA-Z]/g, "");
+	const sanitizedInput = input.replace(/[^a-zA-Z]/g, " ");
 
 	const capitalizedInput = sanitizedInput.toUpperCase();
 	return capitalizedInput;
