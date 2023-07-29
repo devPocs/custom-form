@@ -16,6 +16,15 @@ html(lang='en')
             crossorigin="anonymous"
             />
         style.
+            .hero {
+            background-image: url(../public/images/hero.png); 
+            height: 38rem;  
+            margin: auto; 
+            width: 100%;
+            background-repeat: no-repeat; 
+            background-size: contain; 
+            background-position: center;
+            }
             .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -40,113 +49,10 @@ html(lang='en')
                     a.navbar-brand(href='#')
                         span Nigerian Institution of Surveying and Geoinformatics Students
                         |  (NISGS)
-                    //
-                        <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse"
-                        aria-controls="navbarCollapse"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                        >
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
-                    //
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                        <a
-                        class="nav-link disabled"
-                        href="#"
-                        tabindex="-1"
-                        aria-disabled="true"
-                        >Disabled</a
-                        >
-                        </li>
-                        </ul>
-                    //
-                        <form class="d-flex">
-                        <input
-                        class="form-control me-2"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                        />
-                        <button class="btn btn-outline-success" type="submit">
-                        Search
-                        </button>
-                        </form>
         main
-            #myCarousel.carousel.slide(data-bs-ride='carousel')
-                .carousel-indicators
-                    button.active(type='button' data-bs-target='#myCarousel' data-bs-slide-to='0' aria-label='Slide 1' aria-current='true')
-                    button(type='button' data-bs-target='#myCarousel' data-bs-slide-to='1' aria-label='Slide 2')
-                    button(type='button' data-bs-target='#myCarousel' data-bs-slide-to='2' aria-label='Slide 3')
-                .carousel-inner
-                    .carousel-item.active
-                        svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' preserveAspectRatio='xMidYMid slice' focusable='false')
-                        img(src='./images/caro2.jpeg' alt='')
-                        // <rect width="100%" height="100%" fill="#777"></rect>
-                        .container
-                            .carousel-caption.text-start
-                                h1.fw-bold.text-dark 2ND NISGS SOUTH SOUTH ZONAL CONFERENCE
-                                p.text-dark
-                                    | Tagged: 
-                                    strong
-                                        | "SURVEYING AND GEOMATICS: The Past, The Present
-                                        | and The Future"
-                                p.text-dark
-                                    | Date: 
-                                    em 19th - 23rd September, 2023.
-                                p
-                                    a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
-                    .carousel-item
-                        svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' preserveAspectRatio='xMidYMid slice' focusable='false')
-                        img(src='./images/caro3.jpeg' alt='')
-                        // <rect width="100%" height="100%" fill="#777"></rect>
-                        .container
-                            .carousel-caption.text-start
-                                h1.fw-bold.text-dark 2ND NISGS SOUTH SOUTH ZONAL CONFERENCE
-                                p.text-dark
-                                    | Tagged: 
-                                    strong
-                                        | "SURVEYING AND GEOMATICS: The Past, The Present
-                                        | and The Future"
-                                p.text-dark
-                                    | Date: 
-                                    em 19th - 23rd September, 2023.
-                                p
-                                    a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
-                    .carousel-item
-                        svg.bd-placeholder-img(width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' preserveAspectRatio='xMidYMid slice' focusable='false')
-                        img(src='./images/caro1.jpeg' alt='')
-                        // <rect width="100%" height="100%" fill="#777"></rect>
-                        .container
-                            .carousel-caption.text-start
-                                h1.fw-bold.text-dark 2ND NISGS SOUTH SOUTH ZONAL CONFERENCE
-                                p.text-dark
-                                    | Tagged: 
-                                    strong
-                                        | "SURVEYING AND GEOMATICS: The Past, The Present
-                                        | and The Future"
-                                p.text-dark
-                                    | Date: 
-                                    em 19th - 23rd September, 2023.
-                                p
-                                    a.btn.btn-lg.btn-success.px-4.py-2(href='/register') Register Now
-                button.carousel-control-prev(type='button' data-bs-target='#myCarousel' data-bs-slide='prev')
-                    span.carousel-control-prev-icon(aria-hidden='true')
-                    span.visually-hidden Previous
-                button.carousel-control-next(type='button' data-bs-target='#myCarousel' data-bs-slide='next')
-                    span.carousel-control-next-icon(aria-hidden='true')
-                    span.visually-hidden Next
+            .container-fluid.my-sm-0
+                .row
+                    .text-center.bg-white.hero
             //
                 Marketing messaging and featurettes
                 ==================================================
@@ -154,7 +60,7 @@ html(lang='en')
             .container.marketing
                 // Three columns of text below the carousel
                 .row
-                    h2.text-center.mb-5 Event Highlights
+                    h2.text-center.my-lg-5.mb-5 Event Highlights
                     .col-lg-3.text-center
                         //
                             <svg
@@ -195,7 +101,7 @@ html(lang='en')
                         // <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
                         h2 Tour, Congress and Networking Events
                         p
-                            | network with other young surveyors, field professionals and academia as well as visit exiting landmarks
+                            | Network with other young surveyors, field professionals and academia as well as visit exiting landmarks
                             | in the land of promise.
                     // /.col-lg-4
                     .col-lg-3.text-center
