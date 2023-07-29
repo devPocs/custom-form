@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookie_parser = require("cookie-parser");
 const dotenv = require("dotenv");
-const morgan = require("morgan");
+//const morgan = require("morgan");
 const path = require("path");
 const viewsRoute = require("./routes/viewsRoute");
 const { MongoClient, ServerApiVersion } = require("mongodb");
@@ -20,7 +20,6 @@ const port = app.set("port", process.env.PORT || 4040);
 //db connection.
 
 const uri = process.env.MONGO_CONN;
-console.log(uri);
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -55,8 +54,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
 //middlewares.
-app.use(morgan("dev"));
-
+//app.use(morgan("dev"));
 app.use(cookie_parser());
 
 //middleware routes.
