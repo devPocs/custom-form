@@ -15,12 +15,15 @@ const register = async (data) => {
 		method: "POST",
 		body: data
 	};
-	await fetch("http://localhost:8088/app/v1/register_participant", options)
+	await fetch(
+		"https://nisgssouthsouth.onrender.com/app/v1/register_participant",
+		options
+	)
 		.then((response) => response.json())
 		.then((data) => {
 			if (data.status === "fail") alert(data.message);
 			else {
-				location.assign("/register/successful");
+				https: location.assign("/register/successful");
 			}
 		})
 		.catch((err) => {});
