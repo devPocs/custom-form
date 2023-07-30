@@ -2,10 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookie_parser = require("cookie-parser");
 const dotenv = require("dotenv");
-//const morgan = require("morgan");
+const morgan = require("morgan");
 const path = require("path");
 const viewsRoute = require("./routes/viewsRoute");
-const { MongoClient, ServerApiVersion } = require("mongodb");
 
 //require middleware routes
 const participantRoute = require("./routes/participantRoute");
@@ -17,33 +16,21 @@ app.use(express.urlencoded({ extended: true }));
 dotenv.config({ path: "./config.env" });
 
 const port = app.set("port", process.env.PORT || 4040);
+//local db connection.
+//mongoose.connect("mongodb://127.0.0.1:27017/CustomForm");
+
 //db connection.
-
-const uri = process.env.MONGO_CONN;
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-	serverApi: {
-		version: ServerApiVersion.v1,
-		strict: true,
-		deprecationErrors: true
-	}
-});
-async function run() {
-	try {
-		// Connect the client to the server	(optional starting in v4.7)
-		await client.connect();
-		// Send a ping to confirm a successful connection
-		await client.db("admin").command({ ping: 1 });
-		console.log(
-			"Pinged your deployment. You successfully connected to MongoDB!"
-		);
-	} finally {
-		// Ensures that the client will close when you finish/error
-		await client.close();
-	}
-}
-run().catch(console.dir);
+mongoose
+	.connect(process.env.MONGO_CONN, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
+	.then(() => {
+		console.log("Connected to MongoDB Atlas");
+	})
+	.catch((err) => {
+		console.error("Error connecting to MongoDB Atlas:", err);
+	});
 
 app.disable("x-powered-by");
 
@@ -54,7 +41,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
 //middlewares.
-//app.use(morgan("dev"));
+app.use(morgan("dev"));
+
 app.use(cookie_parser());
 
 //middleware routes.
@@ -85,3 +73,29 @@ app.use((err, req, res, next) => {
 app.listen(app.get("port"), () => {
 	console.log(`Server is running on port ${app.get("port")}!`);
 });
+//
+//
+////db connection.
+//const { MongoClient, ServerApiVersion } = require('mongodb');
+//const uri = "mongodb+srv://pokohufuoma:<password>@cluster0.wue1uam.mongodb.net/?retryWrites=true&w=majority";
+//// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+//const client = new MongoClient(uri, {
+//  serverApi: {
+//    version: ServerApiVersion.v1,
+//    strict: true,
+//    deprecationErrors: true,
+//  }
+//});
+//async function run() {
+//  try {
+//    // Connect the client to the server	(optional starting in v4.7)
+//    await client.connect();
+//    // Send a ping to confirm a successful connection
+//    await client.db("admin").command({ ping: 1 });
+//    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//  } finally {
+//    // Ensures that the client will close when you finish/error
+//    await client.close();
+//  }
+//}
+//run().catch(console.dir);

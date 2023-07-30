@@ -23,7 +23,8 @@ const register = async (data) => {
 		.then((data) => {
 			if (data.status === "fail") alert(data.message);
 			else {
-				https: location.assign("/register/successful");
+				alert("Added successfuly!");
+				location.assign("/register/successful");
 			}
 		})
 		.catch((err) => {});

@@ -18,7 +18,7 @@ exports.checkNewParticipant = (req, res, next) => {
 			if (!matched) {
 				return res.status(400).json({
 					status: "fail",
-					message: "you have not completed the form or"
+					message: "you have not completed the form."
 				});
 			} else {
 				next();
@@ -27,6 +27,7 @@ exports.checkNewParticipant = (req, res, next) => {
 	);
 };
 exports.checkEmail = catchAsync(async (req, res, next) => {
+	console.log("i don reach here");
 	const email = await Participants.findOne({ email: req.body.email });
 	if (email) {
 		return res

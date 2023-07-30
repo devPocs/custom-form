@@ -22,7 +22,7 @@ exports.addParticipant = catchAsync(async (req, res, next) => {
 		file: { originalname, filename, path }
 	});
 	if (newParticipant) {
-		res.status(200).render("success");
+		res.status(200).json({ status: "success" });
 	} else {
 		res.status(400).render("error", { message: "Something went wrong!" });
 	}
