@@ -15,24 +15,19 @@ const register = async (data) => {
 		method: "POST",
 		body: data
 	};
-	const resource = await fetch(
-		"http://localhost:8088/app/v1/register_participant",
+	await fetch(
+		"https://nisgssouthsouth.onrender.com/app/v1/register_participant",
 		options
 	)
-		.then((response) => {
-			console.log(response);
-			if (response.status === 400 || response.status === 500) {
-				alert(
-					"You have not completed the form or the email already exists. Please try a different email address."
-				);
-				location.reload();
-			} else if (response.status === 200) {
+		.then((response) => response.json())
+		.then((data) => {
+			if (data.status === "fail") alert(data.message);
+			else {
+				alert("Added successfuly!");
 				location.assign("/register/successful");
 			}
 		})
-		.catch((err) => {
-			console.log(err);
-		});
+		.catch((err) => {});
 };
 
 document

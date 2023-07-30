@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { checkNewParticipant } = require("./../utils/validator");
+const { checkNewParticipant, checkEmail } = require("./../utils/validator");
 const { addParticipant } = require("./../controller/participantController");
 const multer = require("multer");
 
@@ -15,6 +15,12 @@ const storage = multer.diskStorage({
 });
 const uploads = multer({ storage: storage });
 
-router.post("/", uploads.single("file"), checkNewParticipant, addParticipant);
+router.post(
+	"/",
+	uploads.single("file"),
+	checkEmail,
+	checkNewParticipant,
+	addParticipant
+);
 
 module.exports = router;

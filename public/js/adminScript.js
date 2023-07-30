@@ -3,7 +3,7 @@ const login = async (username, password) => {
 	try {
 		const result = await axios({
 			method: "POST",
-			url: "http://localhost:8088/app/v1/admin/login",
+			url: "https://nisgssouthsouth.onrender.com/app/v1/admin/login",
 			data: { username, password }
 		});
 		if ((result.data.status = "success")) {
