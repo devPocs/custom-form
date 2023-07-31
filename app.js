@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const path = require("path");
 const viewsRoute = require("./routes/viewsRoute");
+const cloudinary = require("cloudinary").v2;
 
 //require middleware routes
 const participantRoute = require("./routes/participantRoute");
@@ -16,6 +17,15 @@ app.use(express.urlencoded({ extended: true }));
 dotenv.config({ path: "./config.env" });
 
 const port = app.set("port", process.env.PORT || 4040);
+
+//cloudinary
+
+cloudinary.config({
+	cloud_name: "dbg6zbtm4",
+	api_key: "649721938535186",
+	api_secret: "lgZrOgteHsLtLS41HywQrAI8JY0"
+});
+
 //local db connection.
 //mongoose.connect("mongodb://127.0.0.1:27017/CustomForm");
 
