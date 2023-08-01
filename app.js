@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookie_parser = require("cookie-parser");
 const dotenv = require("dotenv");
-const morgan = require("morgan");
+//const morgan = require("morgan");
 const path = require("path");
 const viewsRoute = require("./routes/viewsRoute");
 const cloudinary = require("cloudinary").v2;
@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
 //middlewares.
-app.use(morgan("dev"));
+//app.use(morgan("dev"));
 
 app.use(cookie_parser());
 
