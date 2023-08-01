@@ -49,6 +49,6 @@ exports.logout = (req, res) => {
 			expires: new Date(Date.now() + 10 * 1000),
 			httpOnly: true
 		})
-		.json({ status: "success" });
+		.render("login");
 };
 exports.isLoggedIn = (req, res) => {};

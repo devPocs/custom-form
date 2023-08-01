@@ -37,10 +37,12 @@ router.post(
 		// Upload the file to Cloudinary
 		cloudinary.uploader.upload(filePath, (error, result) => {
 			if (error) {
-				console.error("Error uploading file to Cloudinary:", error);
-				res.status(500).json({ error: "Failed to upload file to Cloudinary" });
+				res.render("error", {
+					data: `Failed to upload file to Cloudinary! ${error}`
+				});
 			} else {
-				console.log("File uploaded to Cloudinary:", result);
+				req.url = result.secure_url;
+
 				next();
 			}
 

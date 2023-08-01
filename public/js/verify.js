@@ -1,7 +1,6 @@
 const verifyBtns = document.querySelectorAll(".verifyBtns");
 verifyBtns.forEach((verifyBtn) => {
 	verifyBtn.addEventListener("click", async () => {
-		console.log("tab");
 		const row = verifyBtn.parentElement.parentElement;
 		const email = row.cells[2].innerText;
 
@@ -16,7 +15,6 @@ verifyBtns.forEach((verifyBtn) => {
 			options
 		)
 			.then((response) => {
-				console.log(response);
 				if (response.status === 200) {
 					alert("Success");
 					location.reload();

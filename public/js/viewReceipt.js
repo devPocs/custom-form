@@ -5,7 +5,7 @@ viewReceiptBtns.forEach((viewReceiptBtn) => {
 		let receipt = row.cells[8].innerText;
 		receipt.replace(/\\/g, "/");
 
-		window.location.href = `http://localhost:8088/${receipt}`;
+		window.location.href = `${receipt}`;
 	});
 });
 //the verify button sends an email in the request body and hits the verify route in the backend

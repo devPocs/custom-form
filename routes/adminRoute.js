@@ -13,7 +13,7 @@ const {
 const { login, logout, protected } = require("./../controller/authController");
 
 router.post("/login", login);
-router.get("/logout", logout);
+router.post("/logout", logout);
 router.get("/all_participants", protected, allParticipants);
 router.post("/participants_by_day", protected, getParticipantsByDay);
 router.post("/verify_Participant", protected, verifyParticipant);

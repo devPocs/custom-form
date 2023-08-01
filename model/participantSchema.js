@@ -8,7 +8,8 @@ const path = require("path");
 const fileSchema = new mongoose.Schema({
 	originalname: String,
 	file: String,
-	path: String
+	path: String,
+	url: String
 });
 
 const participantSchema = mongoose.Schema({
@@ -34,6 +35,7 @@ participantSchema.pre("save", function (next) {
 	//generate new id
 	const newId = generateSummitId(6);
 	this.summitID = newId;
+
 	return next();
 });
 

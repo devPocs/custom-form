@@ -7,6 +7,7 @@ const {
 } = require("./../utils/helperFunctions");
 
 exports.addParticipant = catchAsync(async (req, res, next) => {
+	const url = req.url;
 	let { name, email, phoneNumber, gender, educationalStatus, school, region } =
 		req.body;
 	const { originalname, filename, path } = req.file;
@@ -19,7 +20,7 @@ exports.addParticipant = catchAsync(async (req, res, next) => {
 		educationalStatus: sanitizeTextInput(educationalStatus),
 		school: sanitizeTextInput(school),
 		region: sanitizeTextInput(region),
-		file: { originalname, filename, path }
+		file: { originalname, filename, path, url }
 	});
 	if (newParticipant) {
 		res.status(200).json({ status: "success" });

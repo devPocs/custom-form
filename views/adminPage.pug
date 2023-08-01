@@ -11,7 +11,7 @@ html(lang='en')
             div.row
                 div.col-12.d-flex.flex-column
                     div.mb-3
-                        form(action='https://nisgssouthsouth.onrender.com/app/v1/admin/all_participants' ,='' method='get')
+                        form(action='https://nisgssouthsouth.onrender.co/app/v1/admin/all_participants' ,='' method='get')
                             button#register.btn.btn-secondary(type='submit') Get All Participants
                     //- br
                     div.mb-3
@@ -43,4 +43,5 @@ html(lang='en')
                                 label.form-label.me-3(for='educationalStatus') Educational Status:
                                 input#educationalStatus.form-control(type='text' name='educationalStatus' required="true")
                     div.mb-3
-                        a.btn.btn-outline-danger.px-2.py-1.text-end(href='') logout
+                        form#logout.lh-lg(action='/app/v1/admin/logout' ,='' method='post')
+                            button.btn.btn-outline-danger.px-2.py-1.text-end(type='submit') logout
