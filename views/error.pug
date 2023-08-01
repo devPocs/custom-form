@@ -3,9 +3,16 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title -reg error-
+        title registration successful
+        link(href='/css/assets/dist/css/bootstrap.min.css' rel='stylesheet')
+        link(rel='stylesheet' href='/css/home.css')
     body.d-flex.justify-content-center.align-content-center.h-100
         div.container
-            div.row.text-center
-                p#data #{data}
-                    a.btn.btn-outline-secondary.px-3.py-2(href='/register') home
+            div.row
+                div.col-12.d-flex.flex-column
+                    div.mb-3
+                        h1.fs-2.text-center.text-secondary OOPS!
+                    div.mb-3
+                        p.fs-4.text-success.text-center Seems like you are in the wrong place!
+                    div
+                        a.btn.btn-outline-success.px-3.py-2.text-center(href='/') home
