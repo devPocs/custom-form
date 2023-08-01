@@ -11,7 +11,7 @@ verifyBtns.forEach((verifyBtn) => {
 		};
 
 		await fetch(
-			"http://localhost:8088/app/v1/admin/verify_Participant",
+			"https://nisgssouthsouth.onrender.com/app/v1/admin/verify_Participant",
 			options
 		)
 			.then((response) => {
