@@ -76,8 +76,8 @@ app.use((err, req, res, next) => {
 	const errorCode = err.errCode || 500;
 	const stack = err.stack;
 	return res
-		.status(errorCode)
-		.json({ status: errorStatus, message: errorMessage, stack: stack });
+		.status(errorCode).render("error" {data: "Can't find tha route on this server!"})
+		//.json({ status: errorStatus, message: errorMessage, stack: stack });
 });
 
 app.listen(app.get("port"), () => {
