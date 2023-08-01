@@ -10,8 +10,14 @@
 </head>
 
 <body>
-    <form action="http://localhost:8088/app/v1/admin/all_participants" , method="get">
-        <button id="register" type="submit">Get All Participants</button>
+    <div class="container">
+        <div class="row">
+<div class="col-12 d-flex flex-column form-login">
+        <div class="mb-3">
+            <a href="/register" class="btn btn-outline-secondary px-3 py-2">home</a>
+        </div>
+    <form class="mb-3" action="http://localhost:8088/app/v1/admin/all_participants" , method="get">
+        <button id="register" class="btn btn-secondary" type="submit">Get All Participants</button>
     </form>
     <form action="http://localhost:8088/app/v1/admin/unverified_participants" , method="get">
         <button id="unverifiedParticipants" type="submit">Get All Participants</button>
@@ -21,10 +27,12 @@
         <button id="verifiedParticipants" type="submit">Get All Participants</button>
     </form>
     <br>
-    <form id="participantsByRegion" action="/app/v1/admin/participants_by_region" , method="post">
-        <button type="submit">Participants by Region</button>
-        <label for="region">Region:</label>
-        <input type="text" name="region" id="region" required />
+    <form class="mb-3" id="participantsByRegion" action="/app/v1/admin/participants_by_region" , method="post">
+        <button class="btn btn-secondary mb-2" type="submit">Participants by Region</button>
+        <div class="lh-lg d-flex">
+        <label class="form-label me-2" for="region">Region:</label>
+        <input class="form-control" type="text" name="region" id="region" required />
+        </div>
     </form>
     <br>
     <form id="participantsByEducationalStatus" action="/app/v1/admin/participants_by_educational_status" ,
@@ -33,6 +41,9 @@
         <label for="educationalStatus">Educational Status:</label>
         <input type="text" name="educationalStatus" id="educationalStatus" required />
     </form>
+    </div>
+</div>
+    </div>
 </body>
 
 </html>
