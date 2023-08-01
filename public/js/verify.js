@@ -16,7 +16,7 @@ verifyBtns.forEach((verifyBtn) => {
 		)
 			.then((response) => {
 				if (response.status === 200) {
-					alert("Success");
+					alert("Participant Successfully Verified!");
 					location.reload();
 				} else if (response.status === 400) {
 					alert("Something went wrong!");
