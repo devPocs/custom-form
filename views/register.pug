@@ -12,16 +12,20 @@ html(lang='en')
             .row.mx-md-4.px-lg-4.text-center.mx-auto
                 h1.w-75.mx-auto
                     | NISGS South South Conference Registration Page
+                    
                 form#register_participant.form-register
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='name')  Name: 
                         input#name.form-control(type='text' name='name' placeholder= "Surname Firstname" required=true)
+
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='email')  Email: 
                         input#email.form-control(type='email' name='email' placeholder="me@gmail.com" required=true)
+
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='phoneNumber')  Phone: 
                         input#phoneNumber.form-control(type='text' name='phoneNumber' placeholder="08012345678" required=true maxlength=11)
+
                     .d-flex.lh-lg.mb-3
                         label.me-3  Gender: 
                         label.d-flex.me-2
@@ -33,6 +37,7 @@ html(lang='en')
                         label.d-flex
                             input.form-check.me-2(type='radio' name='gender' value='other')
                             |               other
+
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='educationalStatus')  Education: 
                         //
@@ -46,16 +51,31 @@ html(lang='en')
                             option(selected='') Select one
                             option(value='student') Student
                             option(value='graduate') Graduate
+
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='school')  School: 
                         input#school.form-control(type='text' name='school')
 
-                    //.d-flex.lh-lg.mb-3
-                        label.me-2(for='idCard') ID_Card: 
-                        input#idCard.form-control(type='file')
+                    //- .d-flex.lh-lg.mb-3
+                    //-     label.me-3(for='region')  Region: 
+                    //-     input#region.form-control(type='text' name='region'  required=true)
                     .d-flex.lh-lg.mb-3
-                        label.me-3(for='region')  Region: 
-                        input#region.form-control(type='text' name='region'  required=true)
+                        label.me-3(for='region')  Zone: 
+                        //
+                            <input
+                            class="form-control"
+                            type="text"
+                            name="educationalStatus"
+                            id="educationalStatus"
+                            />
+                        select#region.text-secondary.form-select.form-control(name='region' aria-label='.form-select-lg example')
+                            option(selected='') Select one
+                            option(value='south-south') South South
+                            option(value='south-east') South East
+                            option(value='south-west') South West
+                            option(value='north-central') North Central
+                            option(value='north-east') North East
+                            option(value='north-west') North West
                     .d-flex.lh-lg.mb-3
                         label.me-3(for='bankStatement') Receipt:  
                         input#file.form-control(type='file' name='file' placeholder=" accepts .png, .jpg, .jpeg, .pdf" required=true)
