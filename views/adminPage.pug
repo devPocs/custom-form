@@ -27,7 +27,7 @@ html(lang='en')
                             button.btn.btn-secondary.mb-2(type='submit') Get Participant By Name
                             div.d-flex.lh-lg
                                 label.form-label.me-3(for='participant') Name:
-                                input#queryString.form-control(type="text" name="queryString" required=true)
+                                input#queryString.form-control(type="text" name="queryString" required=true placeholder="Surname Firstname")
                     //- br
                     div.mb-3
                         form#participantsByRegion(action='/app/v1/admin/participants_by_region' ,='' method='post')
