@@ -26,8 +26,8 @@ html(lang='en')
                         form(action='https://nisgssouthsouth.onrender.com/app/v1/admin/participant' ,='' method='post')
                             button.btn.btn-secondary.mb-2(type='submit') Get Participant By Name
                             div.d-flex.lh-lg
-                                label.form-label.me-3(for='participant') Email/Name:
-                                input#queryString.form-control(type="text/email" name="queryString" required=true)
+                                label.form-label.me-3(for='participant') Name:
+                                input#queryString.form-control(type="text" name="queryString" required=true)
                     //- br
                     div.mb-3
                         form#participantsByRegion(action='/app/v1/admin/participants_by_region' ,='' method='post')

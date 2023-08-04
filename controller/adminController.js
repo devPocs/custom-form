@@ -180,10 +180,7 @@ exports.getAllUnverifiedParticipants = catchAsync(async (req, res, next) => {
 exports.getParticipant = catchAsync(async (req, res, next) => {
 	const queryString = req.body.queryString;
 	const participant = await Participants.find({
-		$or: [
-			{ name: sanitizeTextInput(queryString) },
-			{ email: sanitizeEmail(queryString) }
-		]
+		name: sanitizeTextInput(queryString)
 	}).sort({ name: 1 });
 	if (participant.length === 0) {
 		return res.status(200).render("results", { data: "0 results" });
