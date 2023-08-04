@@ -12,7 +12,6 @@ html(lang='en')
             if data === "0 results"
                 h3 #{data}
             else
-                let count = 0
                 table.table.table-striped
                     thead.h4.text-secondary
                         tr
@@ -25,10 +24,11 @@ html(lang='en')
                                 th(scope='col') School
                                 th(scope='col') Summit ID
                                 th(scope='col' style="display: none;") File Name
-                                th(scope='col') Date Paid
+                                th(scope='col') Date Registered
                                 th(scope='col') Verified
                     tbody
                     each result in data
+                        let count = 0
                         tr
                             th(scope='row') #{count} + 1
                                 td=result.name
