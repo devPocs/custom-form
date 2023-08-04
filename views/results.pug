@@ -12,6 +12,7 @@ html(lang='en')
             if data === "0 results"
                 h3 #{data}
             else
+                let count = 0
                 table.table.table-striped
                     thead.h4.text-secondary
                         tr
@@ -24,11 +25,12 @@ html(lang='en')
                                 th(scope='col') School
                                 th(scope='col') Summit ID
                                 th(scope='col' style="display: none;") File Name
+                                th(scope='col') Date Paid
                                 th(scope='col') Verified
                     tbody
                     each result in data
                         tr
-                            th(scope='row') 1
+                            th(scope='row') #{count + 1}
                                 td=result.name
                                 td=result.email
                                 td=result.phoneNumber
@@ -37,6 +39,7 @@ html(lang='en')
                                 td=result.school
                                 td=result.summitID
                                 td(style="display: none;")=result.file.url
+                                td=result.createdAt
                                 td=result.verified
                                 td 
                                     button(type="button" class="viewReceiptBtns") View Receipt.    
