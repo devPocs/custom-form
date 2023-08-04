@@ -12,42 +12,42 @@ html(lang='en')
             if data === "0 results"
                 h3 #{data}
             else
-
+                let count = 0
                 table.table.table-striped
                     thead.h4.text-secondary
                         tr
                             th #
-                                th(scope='col') Name
-                                th(scope='col') Email
-                                th(scope='col') Phone
-                                th(scope='col') Educational Status
-                                th(scope='col') Region
-                                th(scope='col') School
-                                th(scope='col') Summit ID
-                                th(scope='col' style="display: none;") File Name
-                                th(scope='col') Date Registered
-                                th(scope='col') Verified
+                            th(scope='col') Name
+                            th(scope='col') Email
+                            th(scope='col') Phone
+                            th(scope='col') Educational Status
+                            th(scope='col') Region
+                            th(scope='col') School
+                            th(scope='col') Summit ID
+                            th(scope='col' style="display: none;") File Name
+                            th(scope='col') Date Registered
+                            th(scope='col') Verified
                     tbody
-                    each result, index in data
+                    each result in data
                         tr
-                            th(scope='row') index + 1
-                                td=result.name
-                                td=result.email
-                                td=result.phoneNumber
-                                td=result.educationalStatus
-                                td=result.region
-                                td=result.school
-                                td=result.summitID
-                                td(style="display: none;")=result.file.url
-                                td=result.createdAt
-                                td=result.verified
-                                td 
-                                    button(type="button" class="viewReceiptBtns") View Receipt.    
-                                td
-                                    if result.verified === false  
-                                        button(type='button' class="verifyBtns") Verify
-                                    else 
-                                        |verified 
+                            td=count+1 
+                            td=result.name
+                            td=result.email
+                            td=result.phoneNumber
+                            td=result.educationalStatus
+                            td=result.region
+                            td=result.school
+                            td=result.summitID
+                            td(style="display: none;")=result.file.url
+                            td=result.createdAt
+                            td=result.verified
+                            td 
+                                button(type="button" class="viewReceiptBtns") View Receipt.    
+                            td
+                                if result.verified === false  
+                                    button(type='button' class="verifyBtns") Verify
+                                else 
+                                    |verified 
         // Boottrap CORE JS
         script(src='/css/assets/dist/js/bootstrap.bundle.min.js')
         script(src="/js/viewReceipt.js")
