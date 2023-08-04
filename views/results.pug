@@ -12,7 +12,6 @@ html(lang='en')
             if data === "0 results"
                 h3 #{data}
             else
-                let count = 0
                 table.table.table-striped
                     thead.h4.text-secondary
                         tr
@@ -28,9 +27,9 @@ html(lang='en')
                             th(scope='col') Date Registered
                             th(scope='col') Verified
                     tbody
-                    each result in data
+                    each result, index in data
                         tr
-                            td=count+1 
+                            td=index+1 
                             td=result.name
                             td=result.email
                             td=result.phoneNumber
