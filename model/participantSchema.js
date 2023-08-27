@@ -6,37 +6,37 @@ const path = require("path");
 
 //create a fileSchema for uploaded files.
 const fileSchema = new mongoose.Schema({
-	originalname: String,
-	file: String,
-	path: String,
-	url: String
+  originalname: String,
+  file: String,
+  path: String,
+  url: String,
 });
 
 const participantSchema = mongoose.Schema({
-	name: { type: String, required: true },
-	email: { type: String, required: true, unique: true },
-	phoneNumber: { type: String, required: true },
-	gender: { type: String, required: true },
-	educationalStatus: {
-		type: String,
-		required: true,
-		enum: ["GRADUATE", "STUDENT"]
-	},
-	school: { type: String },
-	level: { type: Number },
-	region: { type: String },
-	verified: { type: Boolean, default: false },
-	summitID: { type: String },
-	file: fileSchema,
-	createdAt: { type: Date, default: new Date() }
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  phoneNumber: { type: String, required: true },
+  gender: { type: String, required: true },
+  educationalStatus: {
+    type: String,
+    required: true,
+    enum: ["GRADUATE", "STUDENT"],
+  },
+  school: { type: String },
+  level: { type: Number },
+  region: { type: String },
+  verified: { type: Boolean, default: false },
+  summitID: { type: String },
+  file: fileSchema,
+  createdAt: { type: Date },
 });
 
 participantSchema.pre("save", function (next) {
-	//generate new id
-	const newId = generateSummitId(6);
-	this.summitID = newId;
+  //generate new id
+  const newId = generateSummitId(6);
+  this.summitID = newId;
 
-	return next();
+  return next();
 });
 
 const Participant = mongoose.model("participants", participantSchema);
