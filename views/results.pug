@@ -46,8 +46,14 @@ html(lang='en')
                                 if result.verified === false  
                                     button(type='button' class="verifyBtns") Verify
                                 else 
+                                    |verified
+                            td
+                                if result.verified === false  
+                                    button(type='button' class="notVerifiedBtns") Not Verified
+                                else 
                                     |verified 
         // Boottrap CORE JS
         script(src='/css/assets/dist/js/bootstrap.bundle.min.js')
         script(src="/js/viewReceipt.js")
         script(src="/js/verify.js")
+        script(src="/js/notVerified.js")

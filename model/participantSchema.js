@@ -28,7 +28,7 @@ const participantSchema = mongoose.Schema({
   verified: { type: Boolean, default: false },
   summitID: { type: String },
   file: fileSchema,
-  createdAt: { type: Date },
+  createdAt: { type: Date, default: new Date() },
 });
 
 participantSchema.pre("save", function (next) {

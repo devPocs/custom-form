@@ -1,7 +1,7 @@
-const verifyBtns = document.querySelectorAll(".verifyBtns");
-verifyBtns.forEach((verifyBtn) => {
-  verifyBtn.addEventListener("click", async () => {
-    const row = verifyBtn.parentElement.parentElement;
+const notVerifiedBtns = document.querySelectorAll("notVerifiedBtns");
+notVerifiedBtns.forEach((notVerifiedBtn) => {
+  notVerifiedBtn.addEventListener("click", async () => {
+    const row = notVerifiedBtn.parentElement.parentElement;
     const email = row.cells[2].innerText;
 
     const options = {
@@ -11,12 +11,12 @@ verifyBtns.forEach((verifyBtn) => {
     };
 
     await fetch(
-      "https://nisgssouthsouth.onrender.com/app/v1/admin/verify_Participant",
+      "https://nisgssouthsouth.onrender.com/app/v1/admin/unverify_Participant",
       options
     )
       .then((response) => {
         if (response.status === 200) {
-          alert("Participant Successfully Verified!");
+          alert("False Verification Mail Sent!");
           location.reload();
         } else if (response.status === 400) {
           alert("Something went wrong!");
